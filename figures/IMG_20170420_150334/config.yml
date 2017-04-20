@@ -1,9 +1,4 @@
 ---
-multicolumn: false
-export-width: 
-web-width: 500px
-align: center
-float: h!
-export-filename: 
 version: 1
+web-width: 500
 path: figures/IMG_20170420_150334/config.yml
