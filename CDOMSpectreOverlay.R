@@ -10,18 +10,16 @@ CDOMOverlay <- function()
 		abs <- data[,2]
 		CDOM[[i]] = cbind(WV,abs)
 	}
-	CDOM = unlist(CDOM)
-	abs.number = seq(2,2*length(file.data),2)
-	plot.CDOM = cbind(WV,CDOM[,abs.number])
-	for(i in 2:length(plot.CDOM))
+	for(i in 1:length(CDOM))
 	{
-		if(i==2)
+    CDOM.temp = CDOM[[i]][,2]
+		if(i==1)
 		{
-			plot(plot.CDOM[,i]~plot.CDOM$WV,xlim=c(190,900),ylim=c(0,3),type="l",main="")
+			plot(CDOM.temp~CDOM[[i]][,1],xlim=c(190,900),ylim=c(0,3),type="l",main="")
 		}
 		else
 		{
-			lines(plot.CDOM[,i]~plot.CDOM$WV)
+			lines(CDOM.temp~CDOM[[i]][,1])
 		}
 	}
 }
