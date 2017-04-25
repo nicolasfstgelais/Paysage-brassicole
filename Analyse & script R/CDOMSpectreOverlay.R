@@ -1,6 +1,7 @@
 CDOMOverlay <- function()
 {
-	file.data = choose.files(caption="Select CDOM file(s)")
+	#file.data = choose.files(caption="Select CDOM file(s)")
+	
 	CDOM = list()
 	for(i in 1:length(file.data))
 	{

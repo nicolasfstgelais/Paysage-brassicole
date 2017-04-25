@@ -1,0 +1,16 @@
+{
+    "contents" : "CDOMOverlay <- function()\n{\n\t#file.data = choose.files(caption=\"Select CDOM file(s)\")\n  \n\tfile.data = list.files(path = \".//CDOM\")\n\tCDOM = list()\n\tfor(i in 1:length(file.data))\n\t{\n\t\tdata = read.table(paste(\".//CDOM//\",file.data[i],sep=\"\"),skip=1,header=1,sep=\",\")\n\t\tWV <- data[,1]\n\t\tabs <- data[,2]\n\t\tCDOM[[i]] = cbind(WV,abs)\n\t}\n\tpdf(\"CDOM_courbes.pdf\")\n\tfor(i in 1:length(CDOM))\n\t{\n    CDOM.temp = CDOM[[i]][,2]\n\t\tif(i==1)\n\t\t{\n\t\t\tplot(CDOM.temp~CDOM[[i]][,1],xlim=c(190,900),ylim=c(0,3),type=\"l\",main=\"\")\n\t\t}\n\t\telse\n\t\t{\n\t\t\tlines(CDOM.temp~CDOM[[i]][,1])\n\t\t}\n\t}\n  dev.off()\n}\n\n",
+    "created" : 1493127321329.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "590130542",
+    "id" : "498B928F",
+    "lastKnownWriteTime" : 1493128054,
+    "path" : "D:/Université/GitHub/Paysage-brassicole/Analyse & script R/CDOMSpectreOverlay.R",
+    "project_path" : "Analyse & script R/CDOMSpectreOverlay.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
