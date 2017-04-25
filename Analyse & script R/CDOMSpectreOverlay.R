@@ -1,11 +1,12 @@
 CDOMOverlay <- function()
 {
 	#file.data = choose.files(caption="Select CDOM file(s)")
-	
+  
+	file.data = list.files(path = ".//CDOM")
 	CDOM = list()
 	for(i in 1:length(file.data))
 	{
-		data = read.table(file.data[i],skip=1,header=1,sep=",")
+		data = read.table(paste(".//CDOM//",file.data[i],sep=""),skip=1,header=1,sep=",")
 		WV <- data[,1]
 		abs <- data[,2]
 		CDOM[[i]] = cbind(WV,abs)
