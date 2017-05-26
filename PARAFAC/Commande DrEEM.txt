@@ -1,0 +1,160 @@
+nEx = 47;
+nEm = 186;
+nSample = size(DataCube,2)/nEm;
+X = reshape(DataCube, nEx, nEm, nSample);
+X = permute(X, [3 2 1]);
+XBackup=X;
+OriginalData=struct('Ex',Ex,'Em',Em,'X',X,'nEx',nEx,'nEm',nEm,'nSample',nSample,'XBackup',XBackup);
+CutData = OriginalData
+Xs=smootheem(CutData, [15 15],[15 15],[17 18],[19 18],[0 0 0 0],[20],3500,0);
+Xin=subdataset(Xs,[],[],[1:6]);
+eemview(Xin,'X',[3 3],1,[],'site')
+Test1=outliertest(Xin,[1,1],3:7,'nonnegativity',[],'at once');
+comparespectra(Test1,3:7)
+loadingsandleverages(Test1,6)
+
+Xin=subdataset(Xs,[423 424],[],[]);
+Test1=outliertest(Xin,[1,1],3:7,'nonnegativity',[],'at once');
+comparespectra(Test1,3:7)
+loadingsandleverages(Test1,6)
+Xin=subdataset(Xin,[31 55 56 57 66 68 77 86 87 97 98 99 100 101 103 110 118 132 134 152 153 154 155 156 191 193 208 224 227 249 254 259 270 320 340 341 345 346 361 401],[],[]);
+Test1=outliertest(Xin,[1,1],3:7,'nonnegativity',[],'at once');
+comparespectra(Test1,3:7)
+loadingsandleverages(Test1,6)
+
+%Xin=subdataset(Xin,[65 75 88 116 192 193 201 224 362],[],[]);
+%Test1=outliertest(Xin,[1,1],3:7,'nonnegativity',[],'at once');
+%comparespectra(Test1,3:7)
+%loadingsandleverages(Test1,6)
+
+%Xin=subdataset(Xin,[],[],[]);
+%Test1=outliertest(Xin,[1,1],3:7,'nonnegativity',[],'at once');
+%comparespectra(Test1,3:7)
+%loadingsandleverages(Test1,6)
+
+
+Xpre=normeem(Xin)
+eemview(Xpre,'X',[3 3],1,[],'site')
+
+Test1p=outliertest(Xpre,[1,1],3:6,'nonnegativity',[],'at once');
+comparespectra(Test1p,3:6)
+loadingsandleverages(Test1p,6)
+
+[LSmodel6,convg6,DSit6]=randinitanal(Xpre,6,5,'nonnegativity',1e-8);
+
+LSmodel4r=normeem(LSmodel4,'reverse',4)
+S1=splitds(Xpre,[],4,'alternating',{[1 2],[3 4],[1 3],[2 4]}); %FG: Create the splits
+A1=splitanalysis(S1,4,'nonnegativity',[3 3 3 3],[1e-8 1e-8 1e-8 1e-8],'A1');
+splitvalidation(A1,4,[1 2;3 4]);
+%Validé pour 4 composantes
+
+LSmodel5r=normeem(LSmodel5,'reverse',5)
+S2=splitds(Xpre,[],4,'alternating',{[1 2],[3 4],[1 3],[2 4]}); %FG: Create the splits
+A2=splitanalysis(S2,5,'nonnegativity',[3 3 3 3],[1e-8 1e-8 1e-8 1e-8],'A1');
+splitvalidation(A2,5,[1 2;3 4]);
+
+
+
+%Si le modèele ne se valide pas, on peut essayer de faire plus d'itération pour avoir un meileur modèele
+
+S2=splitds(Xpre,[],4,'alternating',{[1 2],[3 4],[1 3],[2 4],[1 4],[2 3]}); %FG: Create the splits
+MyRunOptions=[3 3 3 3 3 3] %specify runs for each split individually
+MyCC=1e-8
+SaveResultsAs='A2_10-6_6comp'
+A2b=splitanalysis(S2,6,'nonnegativity',MyRunOptions,MyCC,SaveResultsAs);
+
+!!!! Modèle A2b validé!!!!
+
+eemview({LSmodel6,LSmodel6},{'X','Model6','error_residuals'},[2 3]);
+eemview({LSmodel6,LSmodel6},{'X','Model6','error_residuals'},[2 3],[],[],[],[1 1 0.05]);
+val6=splitvalidation(A2b,6,[1 2;3 4],{'AB','CD','AC','BD'},LSmodel6r);
+[F6,EmSpectra,ExSpectra,Ff,P6]=modelout(val6,6,'Labrador_Transect',Xs);
+[F6,scores6]=scores2fmax(LSmodel6r,6);
+summary=describecomp(LSmodel6r,6);
+modelout(LSmodel6,6,'drEEM_PARAFAC_LabradorTransect_test.xls');
+
+////////////////////////////////////////
+
+TEST
+
+////////////////////////////////////////
+
+nEx = 41;
+nEm = 162;
+nSample = 69174/162;
+X = reshape(cube, nEx, nEm, nSample);
+X = permute(X, [3 2 1]);
+X = X(:,:,3:end);
+nEx = 39;
+Ex = Ex(3:end);
+XBackup=X;
+OriginalData=struct('Ex',Ex,'Em',Em,'X',X,'nEx',nEx,'nEm',nEm,'nSample',nSample,'XBackup',XBackup);
+CutData = OriginalData
+Xs=smootheem(CutData, [17 17],[19 16],[17 18],[19 18],[0 0 0 0],[20],3500,0);
+Xin=subdataset(Xs,[],[],[]);
+eemview(Xin,'X',[3 3],1,[],'site')
+Test1=outliertest(Xin,[1,1],6:7,'nonnegativity',[],'at once');
+comparespectra(Test1,6:7)
+loadingsandleverages(Test1,6)
+Xin=subdataset(Xs,[21 51 52 61 62 63 109 116 117 199 237 240 241 279 293 344 423 424],[],[]);
+Test1=outliertest(Xin,[1,1],5:7,'nonnegativity',[],'at once');
+comparespectra(Test1,5:7)
+loadingsandleverages(Test1,6)
+Xin=subdataset(Xin,[24 77 136 222 257 406],[],[]);
+Test1=outliertest(Xin,[1,1],6,'nonnegativity',[],'at once');
+comparespectra(Test1,6)
+loadingsandleverages(Test1,6)
+###### ARRÊTER ICI POUR MODÈLE A6b
+
+
+#####
+Xin=subdataset(Xin,[96 193 223 171 190 219 229 154 ],[],[]);
+Test1=outliertest(Xin,[1,1],6:7,'nonnegativity',[],'at once');
+comparespectra(Test1,6:7)
+loadingsandleverages(Test1,7)
+Xin=subdataset(Xin,[31 55 65 67 76 95 96 97 98 100 108 116 130 149 150 203 240 250 260 277 311 300 396], [],[]);
+Test1=outliertest(Xin,[1,1],6:7,'nonnegativity',[],'at once');
+comparespectra(Test1,6:7)
+loadingsandleverages(Test1,6)
+####
+
+
+Xpre=normeem(Xin)
+eemview(Xpre,'X',[3 3],1,[],'site')
+
+Test1p=outliertest(Xpre,[1,1],6,'nonnegativity',[],'at once');
+fingerprint(Test1p,6)
+fingerprint(Test1p,7)
+comparespectra(Test1p,6:7)
+loadingsandleverages(Test1p,6)
+
+[LSmodel6,convg6,DSit6]=randinitanal(Xpre,6,5,'nonnegativity',1e-8);
+[LSmodel7,convg7,DSit7]=randinitanal(Xpre,7,5,'nonnegativity',1e-8);
+
+LSmodel6r=normeem(LSmodel6,'reverse',6)
+LSmodel7r=normeem(LSmodel7,'reverse',7)
+S1=splitds(Xpre,[],4,'alternating',{[1 2],[3 4],[1 3],[2 4]}); %FG: Create the splits
+A6=splitanalysis(S1,6,'nonnegativity',[3 3 3 3],[1e-8 1e-8 1e-8 1e-8],'A1');
+splitvalidation(A6,6,[1 2;3 4]);
+#####################6 components model VALIDATED###########################
+A7=splitanalysis(S1,7,'nonnegativity',[3 3 3 3],[1e-8 1e-8 1e-8 1e-8],'A1');
+splitvalidation(A7,7,[1 2;3 4]);
+
+SI MODÈLE NE VALIDE PAS
+S2=splitds(Xpre,[],4,'alternating',{[1 2],[3 4],[1 3],[2 4],[1 4],[2 3]}); %FG: Create the splits
+MyRunOptions=[3 3 3 3 3 3] %specify runs for each split individually
+MyCC=1e-8
+SaveResultsAs6='A2_10-6_6comp'
+SaveResultsAs7='A2_10-6_7comp'
+A6b=splitanalysis(S2,6,'nonnegativity',MyRunOptions,MyCC,SaveResultsAs6);
+splitvalidation(A6b,6,[1 2;3 4;5 6]);
+A7b=splitanalysis(S2,7,'nonnegativity',MyRunOptions,MyCC,SaveResultsAs7);
+splitvalidation(A7b,7,[1 2;3 4;5 6]);
+
+
+eemview({LSmodel6,LSmodel6},{'X','Model6','error_residuals'},[2 3],[],[],[],[1 1 0.05]);
+val6=splitvalidation(A6,6,[1 2;3 4],{'AB','CD','AC','BD'},LSmodel6r);
+[F6,EmSpectra,ExSpectra,Ff,P6]=modelout(val6,6,'Labrador_Transect_test',Xs);
+
+
+
