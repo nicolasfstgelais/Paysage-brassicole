@@ -1,0 +1,114 @@
+Biere1;Biere2;Lien
+American Strong Ale;Strong Pale Ale;1
+Scotch Ale;Strong Pale Ale;1
+Barley win;Strong Pale Ale;1
+Old Ale;Strong Pale Ale;1
+English Strong Ale;Strong Pale Ale;1
+Strong Pale Ale;Pale Ale;1
+Double IPA;Strong Pale Ale;1
+Double IPA;Indian Pale Ale;1
+Black IPA;Indian Pale Ale;1
+Indian Pale Ale;Pale Ale;1
+Amber Ale;American Pale Ale;1
+American Wheat Ale;American Pale Ale;1
+Blonde Ale;American Pale Ale;1
+American Pale Ale;Pale Ale;1
+Brown Ale;Ale;1
+Mild Ale;Ale;1
+Wild Ale;Ale;1
+Faro;Lambic;1
+Gueuze;Lambic;1
+Fruit;Lambic;1
+Unblended;Lambic;1
+Brett;Wild Ale;1
+Lambic;Ale;1
+Witbier;Belgian/French Ale;1
+Oud Bruin;Belgian/French Ale;1
+Saison;Belgian/French Ale;1
+Biere de garde;Belgian/French Ale;1
+Flanders Red Ale;Belgian/French Ale;1
+Belgian Pale Ale;Belgian/French Ale;1
+Belgian Pale Ale;Belgian Strong Pale Ale;1
+Belgian Strong Pale Ale;Tripel;1
+Tripel;Belgian Strong Dark Ale;1
+Quadrupel;Belgian Strong Dark Ale;1
+Dubbel;Belgian Strong Dark Ale;1
+Belgian Strong Dark Ale;Belgian Dark Ale;1
+Belgian Dark Ale;Belgian/French Ale;1
+Diere de Champagne;Belgian/French Ale;1
+German Ale;Ale;1
+Roggenbier;German Ale;1
+Weissbier;German Ale;1
+WeizenBock;Weissbier;1
+Hefeweizen;Weissbier;1
+Gose;Weissbier;1
+Berliner Weisse;Weissbier;1
+Kristallweizen;Weissbier;1
+Dunkelweizen;Weissbier;1
+Kolsch;German Ale;1
+Kolsch;Lager;1
+Altbier;German Ale;1
+Altbier;Lager;1
+German Lager;Lager;1
+Rauchbier;German Lager;1
+Vienna Lager;German Lager;1
+Munich Lager;German Lager;1
+Munich Dunkel;Munich Lager;1
+Munich Helles;Munich Lager;1
+Schwarzbier;German Lager;1
+Märzen;German Lager;1
+Kellerbier;German Lager;1
+Dortmunder;German Lager;1
+Bock;German Lager;1
+Maibock/Helles Bock;Bock;1
+Doppelbock;Bock;1
+Eisbock;Bock;1
+Dunkler Bock;Bock;1
+European Lager;Lager;1
+European Strong Lager;European Lager;1
+European Dark Lager;European Lager;1
+European Pale Lager;European Lager;1
+Pilsner;Lager;1
+American Imperial Pilsner;Pilsner;1
+Bohemian Pilsner;Pilsner;1
+German Pilsener;Pilsner;1
+American Pilsner;Pilsner;1
+American Pilsner;American Adjunct Lager;1
+Malt Liquor;American Adjunct Lager;1
+Ice Beer;American Adjunct Lager;1
+Dry Beer;American Adjunct Lager;1
+Light Beer;American Adjunct Lager;1
+American Lager;American Adjunct Lager;1
+American Lager;Lager;1
+American Pale Lager;American Lager;1
+American Dark/amber Lager;American Lager;1
+California Common;American Lager;1
+California Common;Ale;1
+Cream Ale;Ale;1
+Cream Ale;Lager;1
+Porter Baltic;Lager;1
+Porter Baltic;Stout/Porter;1
+Oatmeal Stout;Stout/Porter;1
+Flavored Stout;Stout/Porter;1
+Irish Stout;Stout/Porter;1
+english Porter;Stout/Porter;1
+American Porter;Stout/Porter;1
+American Stout;Stout/Porter;1
+Sweet Stout;Stout/Porter;1
+Milk Stout;Stout/Porter;1
+Porter Robuste;Stout/Porter;1
+Foreign Stout;Irish Stout;1
+Stout/Porter;Ale;1
+Irish Ale;Ale;1
+Burton Pale Ale;English Pale Ale/Bitter;1
+Premium Bitter/ESB;English Pale Ale/Bitter;1
+Light Ale;English Pale Ale/Bitter;1
+English Pale Ale/Bitter;Pale Ale;1
+Dry Stout;Stout/Porter;1
+Imperial Stout;Stout/Porter;1
+Imperial Stout;Imperial;1
+Imperial IPA;Imperial;1
+Imperial IPA;Indian Pale Ale;1
+Imperial Pilsner;Imperial;1
+Imperial Pilsner;Pilsner;1
+Rye Ale;Ale;1
