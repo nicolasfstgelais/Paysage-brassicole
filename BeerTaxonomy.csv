@@ -1,7 +1,7 @@
 Biere1;Biere2;Lien
 American Strong Ale;Strong Pale Ale;1
 Scotch Ale;Strong Pale Ale;1
-Barley win;Strong Pale Ale;1
+Barley wine;Strong Pale Ale;1
 Old Ale;Strong Pale Ale;1
 English Strong Ale;Strong Pale Ale;1
 Strong Pale Ale;Pale Ale;1
@@ -9,6 +9,7 @@ Double IPA;Strong Pale Ale;1
 Double IPA;Indian Pale Ale;1
 Black IPA;Indian Pale Ale;1
 Indian Pale Ale;Pale Ale;1
+Pale Ale;Ale;1
 Amber Ale;American Pale Ale;1
 American Wheat Ale;American Pale Ale;1
 Blonde Ale;American Pale Ale;1
@@ -36,6 +37,7 @@ Dubbel;Belgian Strong Dark Ale;1
 Belgian Strong Dark Ale;Belgian Dark Ale;1
 Belgian Dark Ale;Belgian/French Ale;1
 Diere de Champagne;Belgian/French Ale;1
+Belgian/French Ale;Ale;1
 German Ale;Ale;1
 Roggenbier;German Ale;1
 Weissbier;German Ale;1
@@ -106,9 +108,6 @@ Light Ale;English Pale Ale/Bitter;1
 English Pale Ale/Bitter;Pale Ale;1
 Dry Stout;Stout/Porter;1
 Imperial Stout;Stout/Porter;1
-Imperial Stout;Imperial;1
-Imperial IPA;Imperial;1
 Imperial IPA;Indian Pale Ale;1
-Imperial Pilsner;Imperial;1
 Imperial Pilsner;Pilsner;1
 Rye Ale;Ale;1
