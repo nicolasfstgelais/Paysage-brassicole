@@ -1,0 +1,25 @@
+---
+title: "Paysage_Brassicole"
+author: "RLaBrie & NFStGelais"
+date: "6 juillet 2018"
+output: html_document
+---
+
+```{r}
+FmaxBiere = read.table("FmaxBiere.txt", header=T)
+FmaxBiere = aggregate(FmaxBiere[,c(2:9)], FUN = mean, by=list(FmaxBiere$Beer))
+write.csv(x = FmaxBiere,file = "AggregateFmax.csv", fileEncoding = "UTF-8")
+
+InfoBiere=read.csv("InfoBiere.csv")
+
+FmaxBiere$Group.1=gsub("25x",replacement = "",x = FmaxBiere$Group.1)
+FmaxBiere$Group.1=gsub("50x",replacement = "",x = FmaxBiere$Group.1)
+FmaxBiere$Group.1=gsub("100x",replacement = "",x = FmaxBiere$Group.1)
+
+
+
+bieres.merged=merge(FmaxBiere,InfoBiere,by.x = "Group.1",by.y = "X")
+
+setdiff(FmaxBiere$Group.1,InfoBiere$X)
+
+```
